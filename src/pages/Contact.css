@@ -1,0 +1,21 @@
+/* Home.css */
+.contact {
+    text-align: center;        /* Center the content horizontally */
+    color: white;              /* White text color */
+    background-color: #000000; /* Black background */
+    padding: 1px 1px;          /* Add padding */
+    min-height: 100vh;         /* Ensure the page covers the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center;       /* Center content horizontally */
+  }
+  
+  .contact h1 {
+    font-size: 3em;            /* Larger font size for the heading */
+    color: #ffffff;            /* White color for the heading */
+    font-family: 'Outfit', sans-serif; /* Apply 'Outfit' font */
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  

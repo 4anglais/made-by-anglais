@@ -1,0 +1,43 @@
+/* Navbar styles */
+nav {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #000000;
+  font-family: 'Outfit', sans-serif; /* Apply 'Outfit' font */
+}
+
+.logo h1 {
+  color: white;
+  font-size: 24px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+ul li {
+  margin-right: 20px;
+}
+
+.navbar-item {
+  color: white;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif; /* Apply 'Outfit' font */
+}
+
+.navbar-item:hover {
+  color: #ddd;
+}
+
+.active {
+  font-weight: 200;
+  color: #ff0000;
+}
