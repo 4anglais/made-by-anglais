@@ -11,9 +11,10 @@ nav {
   font-family: 'Outfit', sans-serif; /* Apply 'Outfit' font */
 }
 
-.logo h1 {
+.navbar-logo {
   color: white;
   font-size: 24px;
+  text-decoration: none;
 }
 
 ul {

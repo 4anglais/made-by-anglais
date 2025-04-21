@@ -1,10 +1,33 @@
+/* Dark theme */
 body {
     background-color: black;
     color: white;
-}
-html, body {
-    height: 100%; /* Ensure full height */
-    margin: 0;    /* Remove default margin */
-    overflow: hidden; /* Prevent scrolling */
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+  }
+  
+  /* Make sure the layout takes full height */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Flex layout for sticky footer */
+  .App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Let the main content grow, so the footer sticks at the bottom if content is short */
+  .App > main {
+    flex: 1;
+    padding: 20px; /* Optional: adds space around your page content */
+  }
+  
+  /* Footer will auto-push to bottom */
+  .footer {
+    margin-top: auto;
   }
   

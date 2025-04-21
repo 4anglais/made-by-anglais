@@ -7,7 +7,7 @@ function Navbar() {
     <nav>
       {/* Name on the left */}
       <div className="logo">
-        <h1>MadeByAngel</h1> {/* This is the name you wanted */}
+        <NavLink to="/" className="navbar-logo">MadeByAngel</NavLink>
       </div>
 
       {/* Navigation items */}
