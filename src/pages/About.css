@@ -3,11 +3,12 @@
     text-align: center;  /* Center the content */
     color: white;        /* White text color */
     background-color: #000000; /* Black background */
-    padding: 20px 20px;  /* Add padding to top and bottom */
+    padding: 1px 1px;  /* Add padding to top and bottom */
     min-height: 100vh;     /* Make sure the page covers the full viewport height */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertically center content */
+    justify-content: flex-start; /* Vertically center content */
+    align-items: center; /* Center content horizontally */
   }
   
   .about h1 {

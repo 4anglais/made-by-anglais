@@ -15,7 +15,7 @@
     font-size: 3em;            /* Larger font size for the heading */
     color: #ffffff;            /* White color for the heading */
     font-family: 'Outfit', sans-serif; /* Apply 'Outfit' font */
-    font-weight: bold;
+    font-weight: 100;
     margin-bottom: 20px;
   }
   

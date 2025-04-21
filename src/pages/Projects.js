@@ -1,11 +1,12 @@
 import React from 'react';
+import './Projects.css';
 
-function Home() {
+function Projects() {
   return (
-    <div>
-      <h1>What we do</h1>
+    <div className='projects'>
+      <h1>404 Page not found</h1>
     </div>
   );
 }
 
-export default Home;
+export default Projects;
