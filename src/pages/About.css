@@ -1,7 +1,7 @@
 /* Home.css */
 .about {
     text-align: center;  /* Center the content */
-    color: white;        /* White text color */
+    color: rgb(255, 255, 255);        /* White text color */
     background-color: #000000; /* Black background */
     padding: 1px 1px;  /* Add padding to top and bottom */
     min-height: 100vh;     /* Make sure the page covers the full viewport height */
@@ -13,7 +13,7 @@
   
   .about h1 {
     font-size: 3em;        /* Larger font size for the heading */
-    color: #fcfcfc;        /* Gold color for the heading */
+    color: #f0f0f0;        /* Gold color for the heading */
     font-family: 'Outfit', sans-serif; /* Apply 'Outfit' font */
     font-weight: 100;
     margin-bottom: 20px;
