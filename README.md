@@ -4,11 +4,12 @@ This is my personal portfolio website built with **React**. It showcases my proj
 
 ## Features
 
-- Responsive design
+- Responsive design (Not yet pushed)
 - Light/Dark theme toggle
 - Smooth navigation using React Router
 - Modular component structure
 - Easily extendable
+
 
 ## Live Demo
 

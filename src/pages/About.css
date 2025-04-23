@@ -1,39 +1,39 @@
 /* Base styles for About */
 .about {
-  text-align: center;        /* Center the content horizontally */
-  padding: 1px 1px;          /* Add padding */
-  min-height: 100vh;         /* Ensure the page covers the full viewport height */
+  text-align: center;      
+  padding: 1px 1px;          
+  min-height: 100vh;         
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* Align content to the center vertically */
-  align-items: center;       /* Center content horizontally */
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition for background and text color */
+  justify-content: center;   
+  align-items: center;      
+  transition: background-color 0.3s, color 0.3s; 
 }
 
 /* Dark theme specific styles */
 body.dark .about {
-  background-color: #000000;  /* Black background for dark theme */
-  color: white;               /* White text color */
+  background-color: #000000;  
+  color: white;             
 }
 
 body.dark .about h1 {
-  font-size: 3em;             /* Larger font size for the heading */
-  color: #ffffff;             /* White color for the heading */
-  font-family: 'Outfit', sans-serif; /* Apply 'Outfit' font */
+  font-size: 3em;             
+  color: #ffffff;             
+  font-family: 'Outfit', sans-serif; 
   font-weight: 100;
   margin-bottom: 20px;
 }
 
 /* Light theme specific styles */
 body.light .about {
-  background-color: #f5f5f5;  /* Light background for light theme */
-  color: #111;                /* Dark text color */
+  background-color: #f5f5f5;  
+  color: #111;                
 }
 
 body.light .about h1 {
-  font-size: 3em;             /* Larger font size for the heading */
-  color: #111;                /* Dark color for the heading */
-  font-family: 'Outfit', sans-serif; /* Apply 'Outfit' font */
+  font-size: 3em;            
+  color: #111;               
+  font-family: 'Outfit', sans-serif; 
   font-weight: 100;
   margin-bottom: 20px;
 }

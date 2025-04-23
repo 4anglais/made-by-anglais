@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';  // 🔁 Important!
+import ReactDOM from 'react-dom/client';  //  Important!
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

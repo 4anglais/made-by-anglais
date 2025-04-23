@@ -1,39 +1,140 @@
 /* Base styles for Home */
 .home {
-  text-align: center;        /* Center the content horizontally */
-  padding: 1px 1px;          /* Add padding */
-  min-height: 100vh;         /* Ensure the page covers the full viewport height */
+  text-align: center;
+  padding: 1px 1px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Align content to the top */
-  align-items: center;       /* Center content horizontally */
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition for background and text color */
+  justify-content: flex-start;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Intro Section - Flexbox layout */
+.intro {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  width: 80%; 
+  max-width: 1200px;
+  margin-top: 50px;
+}
+
+.intro .text {
+  flex: 1; 
+  text-align: left; 
+  padding-right: 30px; 
+}
+
+.intro .text h1 {
+  font-size: 4rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  color: #333;
+}
+
+.intro .text p {
+  font-size: 2.3rem;
+  color: #555;
+  font-weight: 300;
+}
+
+/* Typewriter Effect */
+.intro .text .Typewriter {
+  display: inline;
+  font-weight: 500;
+  color: #ff0000; 
+}
+
+
+.intro .image {
+  flex: 1; 
+}
+
+.intro .image img {
+  max-width: 100%; 
+  height: auto; 
+  border-radius: 10px; 
 }
 
 /* Dark theme specific styles */
 body.dark .home {
-  background-color: #000000;  /* Black background for dark theme */
-  color: white;               /* White text color */
+  background-color: #000000;
+  color: white;
 }
 
-body.dark .home h1 {
-  font-size: 3em;             /* Larger font size for the heading */
-  color: #ffffff;             /* White color for the heading */
-  font-family: 'Outfit', sans-serif; /* Apply 'Outfit' font */
-  font-weight: 100;
-  margin-bottom: 20px;
+body.dark .intro .text h1 {
+  color: #fff;
+}
+
+body.dark .intro .text p {
+  color: #ccc;
 }
 
 /* Light theme specific styles */
 body.light .home {
-  background-color: #f5f5f5;  /* Light background for light theme */
-  color: #111;                /* Dark text color */
+  background-color: #f5f5f5;
+  color: #111;
 }
 
-body.light .home h1 {
-  font-size: 3em;             /* Larger font size for the heading */
-  color: #111;                /* Dark color for the heading */
-  font-family: 'Outfit', sans-serif; /* Apply 'Outfit' font */
-  font-weight: 100;
+body.light .intro .text h1 {
+  color: #111;
+}
+
+body.light .intro .text p {
+  color: #333;
+}
+
+/* Social Media Section */
+.social-media {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.social-media h2 {
+  font-size: 1.8rem;
   margin-bottom: 20px;
+  color: #333;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+}
+
+.social-icons a {
+  font-size: 30px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #0077b5; /* Example: LinkedIn blue as hover color */
+}
+
+/* Dark theme specific styles for social media icons */
+body.dark .social-media h2 {
+  color: #fff;
+}
+
+body.dark .social-icons a {
+  color: #ccc;
+}
+
+body.dark .social-icons a:hover {
+  color: #1da1f2; /* Example: Twitter blue on hover */
+}
+
+/* Light theme specific styles for social media icons */
+body.light .social-media h2 {
+  color: #111;
+}
+
+body.light .social-icons a {
+  color: #111;
+}
+
+body.light .social-icons a:hover {
+  color: #0077b5; /* Example: LinkedIn blue on hover */
 }
