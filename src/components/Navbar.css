@@ -92,7 +92,7 @@ ul li {
 }
 
 .theme-switch input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #0385f7;
 }
 
 .theme-switch input:checked + .slider:before {
@@ -101,11 +101,11 @@ ul li {
 
 /* Dark Theme specific styles */
 .navbar.dark .theme-switch .slider {
-  background-color: #000000;
+  background-color: #ff0000;
 }
 
 .navbar.dark .theme-switch input:checked + .slider {
-  background-color: #000000;
+  background-color: #ff0000;
 }
 
 .navbar.dark .theme-switch input:checked + .slider:before {
