@@ -1,4 +1,4 @@
-/* Base styles for Home */
+/* Base styles for Home ......Made By Angel Landing page*/
 .home {
   text-align: center;
   padding: 1px 1px;
@@ -119,7 +119,7 @@ body.light .intro .text p {
 }
 
 .social-icons a:hover {
-  color: #0077b5; /* Example: LinkedIn blue as hover color */
+  color: #8c00c4; 
 }
 
 /* Dark theme specific styles for social media icons */
@@ -132,7 +132,7 @@ body.dark .social-icons a {
 }
 
 body.dark .social-icons a:hover {
-  color: #1da1f2; /* Example: Twitter blue on hover */
+  color: #ff0000; 
 }
 
 /* Light theme specific styles for social media icons */
@@ -145,5 +145,5 @@ body.light .social-icons a {
 }
 
 body.light .social-icons a:hover {
-  color: #0077b5; /* Example: LinkedIn blue on hover */
+  color: #ff0000; 
 }

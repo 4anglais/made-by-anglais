@@ -3,7 +3,7 @@ import './Home.css';
 import 'font-awesome/css/font-awesome.min.css';  // Import Font Awesome
 
 function Home() {
-  // Memoizing the strings array to prevent unnecessary recalculations
+  // Memoizing the strings array to prevent unnecessary recalculations...lol
   const strings = useMemo(() => [
     'Design & Build Websites', 
     'am a Tech Startup Enthusiast'
@@ -23,15 +23,15 @@ function Home() {
       setCurrentString(updatedString);
 
       if (!isDeleting && updatedString === currentWord) {
-        setTimeout(() => setIsDeleting(true), 1000); // Delay before deleting
+        setTimeout(() => setIsDeleting(true), 1000); 
       } else if (isDeleting && updatedString === '') {
         setIsDeleting(false);
-        setIndex((prevIndex) => (prevIndex + 1) % strings.length); // Move to the next string
+        setIndex((prevIndex) => (prevIndex + 1) % strings.length); 
       }
-    }, 100); // Adjust typing speed here (in ms)
+    }, 100); 
 
-    return () => clearInterval(typingInterval); // Cleanup on unmount
-  }, [currentString, isDeleting, index, strings]); // Only depend on necessary state
+    return () => clearInterval(typingInterval); 
+  }, [currentString, isDeleting, index, strings]); 
 
   return (
     <div className='home'>
