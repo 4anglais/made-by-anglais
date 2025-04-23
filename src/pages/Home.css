@@ -13,17 +13,17 @@
 /* Intro Section - Flexbox layout */
 .intro {
   display: flex;
-  align-items: center; 
-  justify-content: space-between; 
-  width: 80%; 
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
   max-width: 1200px;
   margin-top: 50px;
 }
 
 .intro .text {
-  flex: 1; 
-  text-align: left; 
-  padding-right: 30px; 
+  flex: 1;
+  text-align: left;
+  padding-right: 30px;
 }
 
 .intro .text h1 {
@@ -40,21 +40,30 @@
 }
 
 /* Typewriter Effect */
-.intro .text .Typewriter {
-  display: inline;
+.typewriter-wrapper {
+  display: inline-block;
   font-weight: 500;
-  color: #ff0000; 
+  color: #ff0000;
+  border-right: 3px solid #ff0000;
+  padding-right: 4px;
+  animation: blink 0.75s step-end infinite;
 }
 
+/* Keyframe for blinking cursor */
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
 
 .intro .image {
-  flex: 1; 
+  flex: 1;
 }
 
 .intro .image img {
-  max-width: 100%; 
-  height: auto; 
-  border-radius: 10px; 
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 /* Dark theme specific styles */

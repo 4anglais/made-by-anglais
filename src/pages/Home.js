@@ -1,9 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import './Home.css'; 
-import Typewriter from 'typewriter-effect'; 
 import 'font-awesome/css/font-awesome.min.css';  // Import Font Awesome
 
 function Home() {
+  // Memoizing the strings array to prevent unnecessary recalculations
+  const strings = useMemo(() => [
+    'Design & Build Websites', 
+    'am a Tech Startup Enthusiast'
+  ], []);
+
+  const [currentString, setCurrentString] = useState('');
+  const [index, setIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const typingInterval = setInterval(() => {
+      const currentWord = strings[index];
+      const updatedString = isDeleting
+        ? currentWord.slice(0, currentString.length - 1)
+        : currentWord.slice(0, currentString.length + 1);
+      
+      setCurrentString(updatedString);
+
+      if (!isDeleting && updatedString === currentWord) {
+        setTimeout(() => setIsDeleting(true), 1000); // Delay before deleting
+      } else if (isDeleting && updatedString === '') {
+        setIsDeleting(false);
+        setIndex((prevIndex) => (prevIndex + 1) % strings.length); // Move to the next string
+      }
+    }, 100); // Adjust typing speed here (in ms)
+
+    return () => clearInterval(typingInterval); // Cleanup on unmount
+  }, [currentString, isDeleting, index, strings]); // Only depend on necessary state
+
   return (
     <div className='home'>
       <section className='intro'>
@@ -11,16 +40,8 @@ function Home() {
           <h1>Hi, I am Angel</h1>
           <p>
             I{' '}
-            <span className='Typewriter'>
-              <Typewriter
-                options={{
-                  strings: ['Design & Build Websites', 'am a Tech Startup Enthusiast'],
-                  autoStart: true,
-                  loop: true,
-                  deleteSpeed: 50,
-                  delay: 50,
-                }}
-              />
+            <span className='typewriter-wrapper'>
+              {currentString}
             </span>
           </p>
         </div>
