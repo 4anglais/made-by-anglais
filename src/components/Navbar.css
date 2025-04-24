@@ -12,7 +12,7 @@
 }
 
 .navbar.dark {
-  background-color: #111;
+  background-color: #000000;
   color: white;
 }
 
@@ -57,8 +57,8 @@ ul li {
 .theme-switch {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 24px;
+  width: 60px; /* Desktop size */
+  height: 30px; /* Desktop size */
 }
 
 .theme-switch input {
@@ -82,8 +82,8 @@ ul li {
 .theme-switch .slider:before {
   position: absolute;
   content: "";
-  height: 16px;
-  width: 16px;
+  height: 22px;
+  width: 22px; /* Desktop size */
   border-radius: 50%;
   left: 4px;
   bottom: 4px;
@@ -96,7 +96,7 @@ ul li {
 }
 
 .theme-switch input:checked + .slider:before {
-  transform: translateX(26px);
+  transform: translateX(30px);
 }
 
 /* Dark Theme specific styles */
@@ -109,5 +109,88 @@ ul li {
 }
 
 .navbar.dark .theme-switch input:checked + .slider:before {
-  transform: translateX(26px);
+  transform: translateX(30px);
+}
+
+/* Mobile Sidebar Styles */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links.open {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #111;
+  color: white;
+  padding-top: 60px;
+  z-index: 999;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links.open li {
+  padding: 15px;
+  text-align: center;
+}
+
+.nav-links.open li a {
+  color: white;
+}
+
+.nav-links.open .theme-switch {
+  display: block;
+  padding-top: 20px;
+}
+
+/* Close Button Color */
+.hamburger i {
+  color: white; /* Default color */
+}
+
+.navbar.dark .hamburger i {
+  color: white; /* Dark theme color */
+}
+
+.navbar.light .hamburger i {
+  color: black; /* Light theme color */
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.open {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+    color: white;
+  }
+
+  .hamburger i {
+    font-size: 24px; /* Reduced size for mobile */
+  }
+
+  /* Mobile Theme Switcher Styles */
+  .theme-switch {
+    width: 55px; /* Smaller size for mobile */
+    height: 5px; /* Smaller size for mobile */
+  }
+
+  .theme-switch .slider:before {
+    height: 18px; /* Smaller size for mobile */
+    width: 18px; /* Smaller size for mobile */
+  }
 }

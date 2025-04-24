@@ -1,4 +1,4 @@
-/* Base styles for Home ......Made By Angel Landing page*/
+/* Base styles for Home ......Made By Angel Landing page */
 .home {
   text-align: center;
   padding: 1px 1px;
@@ -60,10 +60,16 @@
   flex: 1;
 }
 
+/* Zoom effect on image */
 .intro .image img {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
+  transition: transform 0.3s ease-in-out; /* Smooth transition for zoom effect */
+}
+
+.intro .image img:hover {
+  transform: scale(1.1); /* Zoom in the image by 10% on hover */
 }
 
 /* Dark theme specific styles */
@@ -94,56 +100,43 @@ body.light .intro .text p {
   color: #333;
 }
 
-/* Social Media Section */
-.social-media {
-  text-align: center;
-  margin-top: 50px;
+/* Media Queries for responsiveness */
+
+/* For tablets and smaller devices (600px or less) */
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+
+  .intro .text {
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .intro .text h1 {
+    font-size: 2.8rem;
+  }
+
+  .intro .text p {
+    font-size: 1.4rem;
+  }
+  .typewriter-wrapper {
+    font-size: 1.4rem;
+  }
 }
 
-.social-media h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #333;
-}
+/* For smaller mobile devices (450px or less) */
+@media (max-width: 450px) {
+  .intro .text h1 {
+    font-size: 2.2rem;
+  }
 
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 70px;
-}
-
-.social-icons a {
-  font-size: 30px;
-  color: #333;
-  transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #8c00c4; 
-}
-
-/* Dark theme specific styles for social media icons */
-body.dark .social-media h2 {
-  color: #fff;
-}
-
-body.dark .social-icons a {
-  color: #ccc;
-}
-
-body.dark .social-icons a:hover {
-  color: #ff0000; 
-}
-
-/* Light theme specific styles for social media icons */
-body.light .social-media h2 {
-  color: #111;
-}
-
-body.light .social-icons a {
-  color: #111;
-}
-
-body.light .social-icons a:hover {
-  color: #ff0000; 
+  .intro .text p {
+    font-size: 1.4rem;
+  }
+  .typewriter-wrapper {
+    font-size: 1.2rem;
+  }
 }

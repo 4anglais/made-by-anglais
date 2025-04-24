@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import './Navbar.css';
 
 function Navbar({ toggleTheme, currentTheme }) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const handleChange = () => {
     toggleTheme();
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -15,7 +23,13 @@ function Navbar({ toggleTheme, currentTheme }) {
         </NavLink>
       </div>
 
-      <ul>
+      {/* Mobile Hamburger Menu */}
+      <div className="hamburger" onClick={toggleMobileMenu}>
+        <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
+      </div>
+
+      {/* Navbar Links */}
+      <ul className={`nav-links ${isMobileMenuOpen ? 'open' : ''}`}>
         <li>
           <NavLink to="/" className={({ isActive }) => isActive ? "navbar-item active" : "navbar-item"}>Home</NavLink>
         </li>
@@ -28,7 +42,9 @@ function Navbar({ toggleTheme, currentTheme }) {
         <li>
           <NavLink to="/contact" className={({ isActive }) => isActive ? "navbar-item active" : "navbar-item"}>Contact</NavLink>
         </li>
-        <li>
+
+        {/* Theme Switch in the Sidebar */}
+        <li className="theme-switch-wrapper">
           <label className="theme-switch">
             <input type="checkbox" checked={currentTheme === 'dark'} onChange={handleChange} />
             <span className="slider"></span>

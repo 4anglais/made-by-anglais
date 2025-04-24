@@ -1,14 +1,105 @@
+/* Footer Styles */
 .footer {
-    background-color: #000000;
-    color: white;
+  display: flex;
+  justify-content: space-between; /* Distribute space between elements */
+  align-items: center; /* Vertically align items */
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  position: relative; /* Allow positioning of copyright */
+}
+
+.footer p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+.right {
+  position: absolute; /* Position the copyright text absolutely */
+  bottom: 0; /* Align to the bottom of the footer */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for centering */
+  font-size: 0.8rem; /* Smaller font size for copyright */
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-start; /* Align icons to the left */
+  font-size: 30px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end; /* Align links to the right */
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #8c00c4;
+}
+
+/* Dark theme specific styles for footer */
+body.dark .footer {
+  background-color: #eb0f0f;
+  color: #ccc;
+}
+
+body.dark .social-icons a {
+  color: #ccc;
+}
+
+body.dark .social-icons a:hover {
+  color: #000000;
+}
+
+/* Light theme specific styles for footer */
+body.light .footer {
+  background-color: #ff0000;
+  color: #111;
+}
+
+body.light .social-icons a {
+  color: #111;
+}
+
+body.light .social-icons a:hover {
+  color: #ff0000;
+}
+
+/* Media Queries for mobile responsiveness */
+
+/* For mobile devices (600px or less) */
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column; /* Stack elements vertically on mobile */
     text-align: center;
     padding: 20px;
-    font-family: 'Outfit', sans-serif;
-    margin-top: 40px;
   }
-  
+
   .footer p {
-    margin: 0;
-    font-size: 14px;
+    font-size: 1rem; /* Reduce copyright font size on mobile */
+    margin-top: 20px; /* Space between copyright and privacy links */
+    position: static; /* Static position for mobile */
   }
-  
+
+  .social-icons {
+    flex-direction: row; /* Stack icons vertically on mobile */
+    gap: 20px; /* Increase gap between icons */
+    font-size: 30px; /* Increase icon size */
+    margin-bottom: 20px; /* Space between icons and privacy/terms links */
+    justify-content: center; /* Center the icons */
+  }
+
+  .footer-links {
+    flex-direction: row; /* Arrange links horizontally */
+    gap: 10px; /* Space between privacy and terms links */
+    margin-top: 10px; /* Space between links and copyright */
+    justify-content: center; /* Center the links */
+    
+  }
+}
