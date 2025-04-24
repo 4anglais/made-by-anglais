@@ -59,7 +59,7 @@ body.dark .social-icons a:hover {
 
 /* Light theme specific styles for footer */
 body.light .footer {
-  background-color: #ff0000;
+  background-color: #ff0404;
   color: #111;
 }
 
@@ -68,7 +68,7 @@ body.light .social-icons a {
 }
 
 body.light .social-icons a:hover {
-  color: #ff0000;
+  color: #ffffff;
 }
 
 /* Media Queries for mobile responsiveness */
