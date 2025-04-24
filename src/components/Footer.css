@@ -1,12 +1,12 @@
 /* Footer Styles */
 .footer {
   display: flex;
-  justify-content: space-between; /* Distribute space between elements */
-  align-items: center; /* Vertically align items */
+  justify-content: space-between; 
+  align-items: center; 
   padding: 20px;
   background-color: #333;
   color: white;
-  position: relative; /* Allow positioning of copyright */
+  position: relative; 
 }
 
 .footer p {
@@ -14,11 +14,11 @@
   margin-top: 10px;
 }
 .right {
-  position: absolute; /* Position the copyright text absolutely */
-  bottom: 0; /* Align to the bottom of the footer */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Adjust for centering */
-  font-size: 0.8rem; /* Smaller font size for copyright */
+  position: absolute; 
+  bottom: 0; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  font-size: 0.8rem; 
 }
 
 .social-icons {
@@ -50,7 +50,7 @@ body.dark .footer {
 }
 
 body.dark .social-icons a {
-  color: #ccc;
+  color: #ffffff;
 }
 
 body.dark .social-icons a:hover {
@@ -76,31 +76,31 @@ body.light .social-icons a:hover {
 /* For mobile devices (600px or less) */
 @media (max-width: 600px) {
   .footer {
-    flex-direction: column; /* Stack elements vertically on mobile */
+    flex-direction: column; 
     text-align: center;
     padding: 20px;
   }
 
   .footer p {
-    font-size: 1rem; /* Reduce copyright font size on mobile */
-    margin-top: 10px; /* Space between copyright and privacy links */
+    font-size: 1rem; 
+    margin-top: 10px; 
     position: relative;
     margin-right: auto;
   }
   
   .social-icons {
-    flex-direction: row; /* Stack icons vertically on mobile */
-    gap: 20px; /* Increase gap between icons */
-    font-size: 30px; /* Increase icon size */
-    margin-bottom: 20px; /* Space between icons and privacy/terms links */
-    justify-content: center; /* Center the icons */
+    flex-direction: row; 
+    gap: 20px; 
+    font-size: 30px;
+    margin-bottom: 20px; 
+    justify-content: center; 
   }
 
   .footer-links {
-    flex-direction: row; /* Arrange links horizontally */
-    gap: 10px; /* Space between privacy and terms links */
-    margin-top: 10px; /* Space between links and copyright */
-    justify-content: center; /* Center the links */
+    flex-direction: row; 
+    gap: 10px; 
+    margin-top: 10px;
+    justify-content: center; 
     
   }
 }

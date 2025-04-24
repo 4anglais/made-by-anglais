@@ -178,6 +178,12 @@ ul li {
     display: block;
     color: white;
   }
+  .navbar.dark .hamburger {
+    color: white; /* Dark theme color */
+  }
+  .navbar.light .hamburger {
+    color: black; /* Light theme color */
+  }
 
   .hamburger i {
     font-size: 24px; /* Reduced size for mobile */
