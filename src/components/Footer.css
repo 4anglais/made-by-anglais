@@ -83,10 +83,11 @@ body.light .social-icons a:hover {
 
   .footer p {
     font-size: 1rem; /* Reduce copyright font size on mobile */
-    margin-top: 20px; /* Space between copyright and privacy links */
-    position: static; /* Static position for mobile */
+    margin-top: 10px; /* Space between copyright and privacy links */
+    position: relative;
+    margin-right: auto;
   }
-
+  
   .social-icons {
     flex-direction: row; /* Stack icons vertically on mobile */
     gap: 20px; /* Increase gap between icons */
