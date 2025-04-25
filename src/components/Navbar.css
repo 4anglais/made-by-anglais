@@ -179,24 +179,24 @@ ul li {
     color: white;
   }
   .navbar.dark .hamburger {
-    color: white; /* Dark theme color */
+    color: white; 
   }
   .navbar.light .hamburger {
-    color: black; /* Light theme color */
+    color: black; 
   }
 
   .hamburger i {
-    font-size: 24px; /* Reduced size for mobile */
+    font-size: 24px; 
   }
 
   /* Mobile Theme Switcher Styles */
   .theme-switch {
-    width: 55px; /* Smaller size for mobile */
-    height: 5px; /* Smaller size for mobile */
+    width: 55px; 
+    height: 5px; 
   }
 
   .theme-switch .slider:before {
-    height: 18px; /* Smaller size for mobile */
-    width: 18px; /* Smaller size for mobile */
+    height: 18px; 
+    width: 18px; 
   }
 }
