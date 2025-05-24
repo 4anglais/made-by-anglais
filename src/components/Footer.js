@@ -19,7 +19,7 @@ function Footer() {
         <a href="https://www.linkedin.com/in/4anglais" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faLinkedin} spin spinReverse/> {/* LinkedIn Icon */}
         </a>
-        <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer">
+        <a href="https://twitter.com/4anglais" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faTwitter} spin spinReverse/> {/* Twitter Icon */}
         </a>
       </div>
