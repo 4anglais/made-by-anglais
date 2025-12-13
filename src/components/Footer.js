@@ -8,19 +8,19 @@ function Footer() {
     <footer className="footer">
       <div className="social-icons">
         <a href="https://www.facebook.com/4anglais" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faFacebook} spin spinReverse/> {/* Facebook Icon */}
+          <FontAwesomeIcon icon={faFacebook}/> {/* Facebook Icon */}
         </a>
         <a href="https://www.instagram.com/4anglais" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faInstagram} spin spinReverse/> {/* Instagram Icon */}
+          <FontAwesomeIcon icon={faInstagram}/> {/* Instagram Icon */}
         </a>
         <a href="https://github.com/4anglais" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faGithub} spin spinReverse/> {/* Github Icon */}
+          <FontAwesomeIcon icon={faGithub}/> {/* Github Icon */}
         </a>
         <a href="https://www.linkedin.com/in/4anglais" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faLinkedin} spin spinReverse/> {/* LinkedIn Icon */}
+          <FontAwesomeIcon icon={faLinkedin}/> {/* LinkedIn Icon */}
         </a>
         <a href="https://twitter.com/4anglais" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faTwitter} spin spinReverse/> {/* Twitter Icon */}
+          <FontAwesomeIcon icon={faTwitter}/> {/* Twitter Icon */}
         </a>
       </div>
       <div className="footer-links">
