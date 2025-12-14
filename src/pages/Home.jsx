@@ -88,17 +88,17 @@ function Home() {
         <div className='about-grid'>
           <div className='about-card'>
             <h3>Who I Am</h3>
-            <p>I'm a passionate developer with expertise in creating modern, responsive web applications. Customize this section with your own story!</p>
+            <p>I'm a passionate developer with expertise in creating modern, responsive web applications.</p>
           </div>
           
           <div className='about-card'>
             <h3>What I Do</h3>
-            <p>I specialize in full-stack development, designing beautiful interfaces and building robust backends. Share your skills and experience here.</p>
+            <p>I specialize in full-stack development, designing beautiful interfaces and building robust backends. </p>
           </div>
           
           <div className='about-card'>
             <h3>My Passion</h3>
-            <p>I'm driven by creating elegant solutions to complex problems. Talk about what motivates you and your vision for technology.</p>
+            <p>I'm driven by creating elegant solutions to complex problems.</p>
           </div>
           
           <div className='about-card'>
