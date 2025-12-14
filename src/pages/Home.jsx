@@ -83,27 +83,27 @@ function Home() {
 
       <section className='about' id='about'>
         <h2>About Me</h2>
-        <p className='about-subtitle'>Full Stack Developer & Tech Enthusiast</p>
-        
+        <p className='about-subtitle'>A quick look at what drives me and what I love to do.</p>
         <div className='about-grid'>
           <div className='about-card'>
-            <h3>Who I Am</h3>
-            <p>I'm a passionate developer with expertise in creating modern, responsive web applications. Customize this section with your own story!</p>
+            <h3>Creative Design</h3>
+            <p>Passionate about crafting visually stunning and user-friendly interfaces that leave a lasting impression.</p>
           </div>
-          
           <div className='about-card'>
-            <h3>What I Do</h3>
-            <p>I specialize in full-stack development, designing beautiful interfaces and building robust backends. Share your skills and experience here.</p>
+            <h3>Clean Code</h3>
+            <p>Writing maintainable, scalable, and efficient code is at the heart of every project I build.</p>
           </div>
-          
           <div className='about-card'>
-            <h3>My Passion</h3>
-            <p>I'm driven by creating elegant solutions to complex problems. Talk about what motivates you and your vision for technology.</p>
+            <h3>Startup Spirit</h3>
+            <p>Driven by innovation and a love for tech startups, I thrive in fast-paced, dynamic environments.</p>
           </div>
-          
           <div className='about-card'>
-            <h3>Let's Connect</h3>
-            <p>Whether you have a project in mind or just want to chat about tech, feel free to reach out. I'm always eager to collaborate!</p>
+            <h3>Problem Solver</h3>
+            <p>Enjoy tackling complex challenges and delivering robust solutions that make a difference.</p>
+          </div>
+          <div className='about-card'>
+            <h3>Let’s Connect</h3>
+            <p>Open to collaborations, freelance work, or just a friendly chat about technology and design.</p>
           </div>
         </div>
       </section>

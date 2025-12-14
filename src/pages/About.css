@@ -38,6 +38,36 @@
   margin-bottom: 40px;
 }
 
+/* About Card Styles */
+.about-card {
+  background: rgba(255,255,255,0.15);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 24px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.about-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.22);
+}
+.about-card-icon {
+  margin-bottom: 18px;
+  color: #6c63ff;
+}
+.about-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-family: 'Outfit', sans-serif;
+}
+.about-card p {
+  font-size: 1rem;
+  opacity: 0.92;
+}
+}
+
 /* About Section Card - iOS Glassmorphism */
 .about-section {
   background: rgba(255, 255, 255, 0.25);
