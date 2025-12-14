@@ -222,6 +222,7 @@ body.light .intro .text p {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px;
   margin-bottom: 40px;
+  align-items: stretch;
 }
 
 /* iOS 26 Glassmorphism Card Style */
@@ -239,6 +240,8 @@ body.light .intro .text p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: stretch;
+  height: 100%;
 }
 
 .feature-card:hover {
@@ -492,8 +495,9 @@ body.light .feature-card h3 {
     aspect-ratio: 1 / 1.2;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: stretch;
     max-width: 100%;
+    min-height: 180px;
   }
 
   .feature-card .card-icon {
@@ -541,8 +545,9 @@ body.light .feature-card h3 {
     aspect-ratio: 1 / 1.25;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: stretch;
     border-radius: 18px;
+    min-height: 150px;
   }
 
   .feature-card .card-icon {
@@ -590,7 +595,7 @@ body.light .feature-card h3 {
     height: 120px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: stretch;
     border-radius: 14px;
   }
 
@@ -984,6 +989,7 @@ body.light .contact-subtitle {
   color: #111;
   max-width: 140px;
   margin: 0 auto;
+  min-height: 120px;
 }
 
 .contact-card:hover {
@@ -1112,6 +1118,7 @@ body.dark .contact-icon {
   .contact-card {
     padding: 15px;
     aspect-ratio: 1 / 1;
+    min-height: 100px;
   }
 
   .contact-icon {
