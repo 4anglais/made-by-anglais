@@ -1,3 +1,14 @@
+.navbar {
+  scroll-behavior: smooth;
+}
+
+/* Add effect when navbar is scrolled */
+.navbar.scrolled {
+  box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.95);
+  transition: box-shadow 0.3s, background 0.3s;
+  /* You can adjust background for dark mode if needed */
+}
 /* Navbar styles */
 .navbar {
   display: flex;

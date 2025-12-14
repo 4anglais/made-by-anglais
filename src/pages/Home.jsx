@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPalette, faCode, faRocket, faWrench, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin, faGithub, faTwitter, faWhatsapp, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'; 
+import { faLinkedin, faGithub, faWhatsapp, faFacebook, faInstagram, faXTwitter } from '@fortawesome/free-brands-svg-icons'; 
 
 function Home() {
   // Memoizing the strings array to prevent unnecessary recalculations...lol
@@ -157,7 +157,7 @@ function Home() {
 
           <a href="https://x.com/4anglais" target="_blank" rel="noopener noreferrer" className='contact-card twitter-card'>
             <div className='contact-icon'>
-              <FontAwesomeIcon icon={faTwitter} />
+              <FontAwesomeIcon icon={faXTwitter} />
             </div>
             <h3>X</h3>
           </a>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon component
-import { faFacebook, faInstagram, faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'; // Import the brand icons
+import { faFacebook, faInstagram, faGithub, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons'; // Import the brand icons
 
 function Footer() {
   return (
@@ -20,7 +20,7 @@ function Footer() {
           <FontAwesomeIcon icon={faLinkedin}/> {/* LinkedIn Icon */}
         </a>
         <a href="https://twitter.com/4anglais" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faTwitter}/> {/* Twitter Icon */}
+          <FontAwesomeIcon icon={faXTwitter}/> {/* X (formerly Twitter) Icon */}
         </a>
       </div>
       <div className="footer-links">

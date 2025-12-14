@@ -1003,6 +1003,7 @@ body.dark .contact-card:hover {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
+
 .contact-icon {
   font-size: 2rem;
   margin-bottom: 8px;
@@ -1011,6 +1012,12 @@ body.dark .contact-card:hover {
   justify-content: center;
   width: 50px;
   height: 50px;
+  color: #111 !important; /* Black for light mode */
+  transition: color 0.3s;
+}
+
+body.dark .contact-icon {
+  color: #fff !important; /* White for dark mode */
 }
 
 .contact-card h3 {
@@ -1027,41 +1034,8 @@ body.dark .contact-card:hover {
 }
 
 /* Individual card icon colors */
-.email-card .contact-icon {
-  color: #ff6b6b;
-}
 
-.phone-card .contact-icon {
-  color: #4ecdc4;
-}
-
-.whatsapp-card .contact-icon {
-  color: #25d366;
-}
-
-.linkedin-card .contact-icon {
-  color: #0a66c2;
-}
-
-.github-card .contact-icon {
-  color: #333;
-}
-
-body.dark .github-card .contact-icon {
-  color: #ffffff;
-}
-
-.twitter-card .contact-icon {
-  color: #1da1f2;
-}
-
-.facebook-card .contact-icon {
-  color: #1877f2;
-}
-
-.instagram-card .contact-icon {
-  color: #e1306c;
-}
+/* Removed individual brand icon colors for contact section to enforce black/white theme */
 
 /* Responsive Contact Cards */
 @media (max-width: 1024px) {

@@ -1,0 +1,46 @@
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s;
+}
+
+.loader-svg {
+  width: 400px;
+  height: 100px;
+}
+
+
+
+
+
+
+
+.loader-fill {
+  font-size: 60px;
+  font-family: 'Outfit', Arial, sans-serif;
+  font-weight: 600;
+  stroke: none;
+  transition: clip-path 0.3s, fill 0.3s;
+  letter-spacing: 2px;
+}
+
+body.dark .loader-container {
+  background: #181818;
+}
+
+
+body.dark .loader-outline {
+  stroke: #fff;
+  filter: drop-shadow(0 1px 0 #111) drop-shadow(0 0 2px #fff);
+}
+body.dark .loader-fill {
+  /* The fill color will be set inline by JS for the progress effect */
+}

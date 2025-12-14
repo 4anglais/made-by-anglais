@@ -16,9 +16,22 @@ function Navbar({ toggleTheme, currentTheme }) {
   };
 
   useEffect(() => {
+    // Smooth scroll for anchor links
+    const handleNavClick = (e) => {
+      if (e.target.tagName === 'A' && e.target.getAttribute('href')?.startsWith('#')) {
+        const targetId = e.target.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    };
+    document.querySelector('.navbar').addEventListener('click', handleNavClick);
+
+    // Scroll effect for navbar and active section logic
     const handleScroll = () => {
       const sections = ['home', 'features', 'about', 'projects', 'contact'];
-      
       for (let section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -29,10 +42,19 @@ function Navbar({ toggleTheme, currentTheme }) {
           }
         }
       }
+      // Add shadow or background to navbar on scroll
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
     };
-
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      document.querySelector('.navbar').removeEventListener('click', handleNavClick);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const isActive = (section) => activeSection === section ? 'navbar-item active' : 'navbar-item';
