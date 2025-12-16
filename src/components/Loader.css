@@ -4,17 +4,20 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #fff;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  transition: opacity 0.5s;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(20px);
 }
 
 .loader-svg {
-  width: 400px;
-  height: 100px;
+  width: 450px;
+  height: 120px;
+  filter: drop-shadow(0 4px 20px rgba(255, 0, 0, 0.15));
 }
 
 
@@ -24,23 +27,68 @@
 
 
 .loader-fill {
-  font-size: 60px;
+  font-size: 64px;
   font-family: 'Outfit', Arial, sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   stroke: none;
-  transition: clip-path 0.3s, fill 0.3s;
-  letter-spacing: 2px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  letter-spacing: 1px;
 }
 
 body.dark .loader-container {
-  background: #181818;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
-
-body.dark .loader-outline {
-  stroke: #fff;
-  filter: drop-shadow(0 1px 0 #111) drop-shadow(0 0 2px #fff);
+body.dark .loader-svg {
+  filter: drop-shadow(0 4px 20px rgba(255, 0, 0, 0.25));
 }
-body.dark .loader-fill {
-  /* The fill color will be set inline by JS for the progress effect */
+/* Modern progress indicator */
+.progress-indicator {
+  margin-top: 40px;
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff0000, #ff4444);
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+body.dark .progress-indicator {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive loader */
+@media (max-width: 768px) {
+  .loader-svg {
+    width: 350px;
+    height: 100px;
+  }
+  
+  .loader-fill {
+    font-size: 48px;
+  }
+  
+  .progress-indicator {
+    width: 150px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loader-svg {
+    width: 280px;
+    height: 80px;
+  }
+  
+  .loader-fill {
+    font-size: 36px;
+  }
 }

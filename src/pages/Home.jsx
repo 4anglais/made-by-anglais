@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPalette, faCode, faRocket, faWrench, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin, faGithub, faWhatsapp, faFacebook, faInstagram, faXTwitter } from '@fortawesome/free-brands-svg-icons'; 
+import { faPalette, faCode, faRocket, faWrench, faEnvelope, faPhone, faBrain, faComments, faLightbulb, faUsers, faChartLine, faDatabase, faCloud } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faGithub, faWhatsapp, faFacebook, faInstagram, faXTwitter, faHtml5, faCss3Alt, faJs, faReact, faPython, faGitAlt } from '@fortawesome/free-brands-svg-icons'; 
 
 function Home() {
   // Memoizing the strings array to prevent unnecessary recalculations...lol
@@ -106,6 +106,146 @@ function Home() {
             <p>Open to collaborations, freelance work, or just a friendly chat about technology and design.</p>
           </div>
         </div>
+        
+        <div className='skills-section'>
+          <h3>Technical Skills</h3>
+          <div className='skills-grid'>
+            <div className='skill-card-progress'>
+              <div className='circular-progress' data-percentage='90'>
+                <svg className='progress-ring' width='100' height='100'>
+                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50'/>
+                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50' strokeDasharray='264' strokeDashoffset='26.4'/>
+                </svg>
+                <FontAwesomeIcon icon={faHtml5} className='skill-icon-center' />
+              </div>
+              <FontAwesomeIcon icon={faHtml5} className='mobile-skill-icon' />
+              <div className='mobile-progress-bar'>
+                <div className='mobile-progress-fill' style={{width: '90%'}}></div>
+              </div>
+              <h5>HTML</h5>
+            </div>
+            
+            <div className='skill-card-progress'>
+              <div className='circular-progress' data-percentage='70'>
+                <svg className='progress-ring' width='100' height='100'>
+                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50'/>
+                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50' strokeDasharray='264' strokeDashoffset='79.2'/>
+                </svg>
+                <FontAwesomeIcon icon={faCss3Alt} className='skill-icon-center' />
+              </div>
+              <FontAwesomeIcon icon={faCss3Alt} className='mobile-skill-icon' />
+              <div className='mobile-progress-bar'>
+                <div className='mobile-progress-fill' style={{width: '70%'}}></div>
+              </div>
+              <h5>CSS</h5>
+            </div>
+            
+            <div className='skill-card-progress'>
+              <div className='circular-progress' data-percentage='68'>
+                <svg className='progress-ring' width='100' height='100'>
+                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50'/>
+                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50' strokeDasharray='264' strokeDashoffset='84.48'/>
+                </svg>
+                <FontAwesomeIcon icon={faJs} className='skill-icon-center' />
+              </div>
+              <FontAwesomeIcon icon={faJs} className='mobile-skill-icon' />
+              <div className='mobile-progress-bar'>
+                <div className='mobile-progress-fill' style={{width: '68%'}}></div>
+              </div>
+              <h5>JavaScript</h5>
+            </div>
+            
+            <div className='skill-card-progress'>
+              <div className='circular-progress' data-percentage='60'>
+                <svg className='progress-ring' width='100' height='100'>
+                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50'/>
+                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50' strokeDasharray='264' strokeDashoffset='105.6'/>
+                </svg>
+                <FontAwesomeIcon icon={faReact} className='skill-icon-center' />
+              </div>
+              <FontAwesomeIcon icon={faReact} className='mobile-skill-icon' />
+              <div className='mobile-progress-bar'>
+                <div className='mobile-progress-fill' style={{width: '60%'}}></div>
+              </div>
+              <h5>React</h5>
+            </div>
+            
+            <div className='skill-card-progress'>
+              <div className='circular-progress' data-percentage='50'>
+                <svg className='progress-ring' width='100' height='100'>
+                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50'/>
+                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50' strokeDasharray='264' strokeDashoffset='132'/>
+                </svg>
+                <FontAwesomeIcon icon={faPython} className='skill-icon-center' />
+              </div>
+              <FontAwesomeIcon icon={faPython} className='mobile-skill-icon' />
+              <div className='mobile-progress-bar'>
+                <div className='mobile-progress-fill' style={{width: '50%'}}></div>
+              </div>
+              <h5>Python</h5>
+            </div>
+          </div>
+          
+          <h4>Development Tools</h4>
+          <div className='skill-cards-grid'>
+            <div className='skill-card'>
+              <FontAwesomeIcon icon={faGitAlt} className='skill-card-icon' />
+              <h5>Git</h5>
+            </div>
+            <div className='skill-card'>
+              <FontAwesomeIcon icon={faGithub} className='skill-card-icon' />
+              <h5>GitHub</h5>
+            </div>
+            <div className='skill-card'>
+              <FontAwesomeIcon icon={faCode} className='skill-card-icon' />
+              <h5>VS Code</h5>
+            </div>
+            <div className='skill-card'>
+              <FontAwesomeIcon icon={faCloud} className='skill-card-icon' />
+              <h5>Netlify</h5>
+            </div>
+          </div>
+          
+          <h4>Cloud & Database</h4>
+          <div className='skill-cards-grid'>
+            <div className='skill-card'>
+              <FontAwesomeIcon icon={faCloud} className='skill-card-icon' />
+              <h5>Firebase</h5>
+            </div>
+            <div className='skill-card'>
+              <FontAwesomeIcon icon={faDatabase} className='skill-card-icon' />
+              <h5>MySQL</h5>
+            </div>
+          </div>
+          
+          <h4>Marketing & Analytics</h4>
+          <div className='skill-cards-grid'>
+            <div className='skill-card'>
+              <FontAwesomeIcon icon={faChartLine} className='skill-card-icon' />
+              <h5>Google Analytics</h5>
+            </div>
+          </div>
+          
+          <h4>Soft Skills</h4>
+          <div className='skill-cards-grid'>
+            <div className='skill-card'>
+              <FontAwesomeIcon icon={faBrain} className='skill-card-icon' />
+              <h5>Problem Solving</h5>
+            </div>
+            <div className='skill-card'>
+              <FontAwesomeIcon icon={faComments} className='skill-card-icon' />
+              <h5>Communication</h5>
+            </div>
+            <div className='skill-card'>
+              <FontAwesomeIcon icon={faLightbulb} className='skill-card-icon' />
+              <h5>Innovation</h5>
+            </div>
+            <div className='skill-card'>
+              <FontAwesomeIcon icon={faUsers} className='skill-card-icon' />
+              <h5>Adaptability</h5>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className='projects' id='projects'>
@@ -175,6 +315,16 @@ function Home() {
             </div>
             <h3>Instagram</h3>
           </a>
+        </div>
+        
+        <div className='direct-email'>
+          <h3>Send me a message</h3>
+          <form className='email-form' action="https://formspree.io/f/mdkqrwgw" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
         </div>
       </section>    </div>
   );

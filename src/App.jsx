@@ -20,9 +20,26 @@ function App() {
   }, [theme]);
 
   useEffect(() => {
-    // Simulate loading duration based on Loader progress (about 2s)
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
+    const preloadImages = () => {
+      const images = [require('./assets/myimage.png')];
+      let loadedCount = 0;
+      
+      const checkAllLoaded = () => {
+        loadedCount++;
+        if (loadedCount === images.length) {
+          setTimeout(() => setLoading(false), 500);
+        }
+      };
+      
+      images.forEach(src => {
+        const img = new Image();
+        img.onload = checkAllLoaded;
+        img.onerror = checkAllLoaded;
+        img.src = src;
+      });
+    };
+    
+    preloadImages();
   }, []);
 
   return (

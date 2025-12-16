@@ -31,7 +31,6 @@ function Loader() {
             <rect x="0" y={120 - (progress * 1.2)} width="600" height={progress * 1.2} />
           </clipPath>
         </defs>
-        {/* Outline removed for clean fill-only effect */}
         <text
           x="50%"
           y="50%"
@@ -43,6 +42,9 @@ function Loader() {
           MadeByAngel
         </text>
       </svg>
+      <div className="progress-indicator">
+        <div className="progress-bar" style={{ width: `${progress}%` }}></div>
+      </div>
     </div>
   );
 }
