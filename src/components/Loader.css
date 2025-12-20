@@ -36,7 +36,7 @@
 }
 
 body.dark .loader-container {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #f30303 0%, #181313 100%);
 }
 
 body.dark .loader-svg {
@@ -47,7 +47,7 @@ body.dark .loader-svg {
   margin-top: 40px;
   width: 200px;
   height: 4px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(0, 0, 0);
   border-radius: 2px;
   overflow: hidden;
   backdrop-filter: blur(10px);
@@ -62,7 +62,7 @@ body.dark .loader-svg {
 }
 
 body.dark .progress-indicator {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgb(255, 255, 255);
 }
 
 /* Responsive loader */
