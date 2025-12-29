@@ -1,0 +1,235 @@
+.project-card-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-expandable-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.project-expandable-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.project-expandable-card.expanded {
+  cursor: default;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Left Section: Small Card / Logo */
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: fit-content;
+  flex-shrink: 0;
+}
+
+.project-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.project-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Right Section: Arrow Icon */
+.expand-icon {
+  font-size: 1.2rem;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #ff0000;
+  padding: 10px;
+}
+
+.expand-icon.rotated {
+  transform: rotate(180deg);
+}
+
+/* Expanded Content */
+.expanded-content {
+  display: flex;
+  width: 100%;
+  opacity: 0;
+  max-height: 0;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 40px;
+  padding-left: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  margin-left: 20px;
+}
+
+.project-expandable-card.expanded .expanded-content {
+  opacity: 1;
+  max-height: 1000px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Center Section: Description and Features */
+.project-details {
+  flex: 2;
+  text-align: left;
+}
+
+.project-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.project-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-features li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.feature-bullet {
+  color: #ff0000;
+  margin-top: 4px;
+  font-size: 0.8rem;
+}
+
+/* Right Section: Tech Stack */
+.project-tech {
+  flex: 1;
+  text-align: left;
+  min-width: 150px;
+}
+
+.tech-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  opacity: 0.7;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 15px;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.tech-icon {
+  font-size: 1.5rem;
+  color: #ff0000;
+}
+
+.tech-name {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* Links */
+.project-links {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+.project-link {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background: rgba(255, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Dark/Light mode overrides */
+body.light .project-expandable-card {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #111;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+body.light .project-expandable-card:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+body.light .expanded-content {
+  border-left-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light .project-link {
+  color: #111;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .expanded-content {
+    flex-direction: column;
+    gap: 30px;
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+  
+  body.light .expanded-content {
+    border-top-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .project-expandable-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .expand-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}

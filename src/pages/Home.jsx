@@ -1,10 +1,40 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import './Home.css';
+import ProjectCard from '../components/ProjectCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPalette, faCode, faRocket, faWrench, faEnvelope, faPhone, faBrain, faComments, faLightbulb, faUsers, faChartLine, faDatabase, faCloud } from '@fortawesome/free-solid-svg-icons';
+import { faPalette, faCode, faRocket, faWrench, faEnvelope, faPhone, faBrain, faComments, faLightbulb, faUsers, faChartLine, faDatabase, faCloud, faFire, faBolt, faWind } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub, faWhatsapp, faFacebook, faInstagram, faXTwitter, faHtml5, faCss3Alt, faJs, faReact, faPython, faGitAlt } from '@fortawesome/free-brands-svg-icons'; 
 
 function Home() {
+  const offerRef = useRef(null);
+  const aboutRef = useRef(null);
+  const skillsRef = useRef(null);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    const sections = [offerRef.current, aboutRef.current, skillsRef.current];
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
   // Memoizing the strings array to prevent unnecessary recalculations...lol
   const strings = useMemo(() => [
     'Design & Build Websites', 
@@ -52,7 +82,7 @@ function Home() {
         </div>
       </section>
 
-      <section className='features' id='features'>
+      <section className='features blur-clear-scroll' id='features' ref={offerRef}>
         <h2>What I Offer</h2>
         <div className='cards-container'>
           <div className='feature-card design-card'>
@@ -81,7 +111,7 @@ function Home() {
         </div>
       </section>
 
-      <section className='about' id='about'>
+      <section className='about succession-scroll' id='about' ref={aboutRef}>
         <h2>About Me</h2>
         <p className='about-subtitle'>A quick look at what drives me and what I love to do.</p>
         <div className='about-grid'>
@@ -107,14 +137,14 @@ function Home() {
           </div>
         </div>
         
-        <div className='skills-section'>
+        <div className='skills-section stomp-scroll' ref={skillsRef}>
           <h3>Technical Skills</h3>
           <div className='skills-grid'>
             <div className='skill-card-progress'>
               <div className='circular-progress' data-percentage='90'>
-                <svg className='progress-ring' width='100' height='100'>
-                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50'/>
-                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50' strokeDasharray='264' strokeDashoffset='26.4'/>
+                <svg className='progress-ring' width='80' height='80'>
+                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='36' cx='40' cy='40'/>
+                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='36' cx='40' cy='40' strokeDasharray='226.08' strokeDashoffset='22.6'/>
                 </svg>
                 <FontAwesomeIcon icon={faHtml5} className='skill-icon-center' />
               </div>
@@ -127,9 +157,9 @@ function Home() {
             
             <div className='skill-card-progress'>
               <div className='circular-progress' data-percentage='70'>
-                <svg className='progress-ring' width='100' height='100'>
-                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50'/>
-                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50' strokeDasharray='264' strokeDashoffset='79.2'/>
+                <svg className='progress-ring' width='80' height='80'>
+                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='36' cx='40' cy='40'/>
+                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='36' cx='40' cy='40' strokeDasharray='226.08' strokeDashoffset='67.8'/>
                 </svg>
                 <FontAwesomeIcon icon={faCss3Alt} className='skill-icon-center' />
               </div>
@@ -142,9 +172,9 @@ function Home() {
             
             <div className='skill-card-progress'>
               <div className='circular-progress' data-percentage='68'>
-                <svg className='progress-ring' width='100' height='100'>
-                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50'/>
-                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50' strokeDasharray='264' strokeDashoffset='84.48'/>
+                <svg className='progress-ring' width='80' height='80'>
+                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='36' cx='40' cy='40'/>
+                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='36' cx='40' cy='40' strokeDasharray='226.08' strokeDashoffset='72.3'/>
                 </svg>
                 <FontAwesomeIcon icon={faJs} className='skill-icon-center' />
               </div>
@@ -154,12 +184,27 @@ function Home() {
               </div>
               <h5>JavaScript</h5>
             </div>
+
+            <div className='skill-card-progress'>
+              <div className='circular-progress' data-percentage='65'>
+                <svg className='progress-ring' width='80' height='80'>
+                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='36' cx='40' cy='40'/>
+                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='36' cx='40' cy='40' strokeDasharray='226.08' strokeDashoffset='79.1'/>
+                </svg>
+                <span className='skill-icon-center ts-logo'>TS</span>
+              </div>
+              <span className='mobile-skill-icon ts-logo-mobile'>TS</span>
+              <div className='mobile-progress-bar'>
+                <div className='mobile-progress-fill' style={{width: '65%'}}></div>
+              </div>
+              <h5>TypeScript</h5>
+            </div>
             
             <div className='skill-card-progress'>
               <div className='circular-progress' data-percentage='60'>
-                <svg className='progress-ring' width='100' height='100'>
-                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50'/>
-                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50' strokeDasharray='264' strokeDashoffset='105.6'/>
+                <svg className='progress-ring' width='80' height='80'>
+                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='36' cx='40' cy='40'/>
+                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='36' cx='40' cy='40' strokeDasharray='226.08' strokeDashoffset='90.4'/>
                 </svg>
                 <FontAwesomeIcon icon={faReact} className='skill-icon-center' />
               </div>
@@ -172,9 +217,9 @@ function Home() {
             
             <div className='skill-card-progress'>
               <div className='circular-progress' data-percentage='50'>
-                <svg className='progress-ring' width='100' height='100'>
-                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50'/>
-                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='42' cx='50' cy='50' strokeDasharray='264' strokeDashoffset='132'/>
+                <svg className='progress-ring' width='80' height='80'>
+                  <circle className='progress-ring-circle' stroke='rgba(255,0,0,0.2)' strokeWidth='4' fill='transparent' r='36' cx='40' cy='40'/>
+                  <circle className='progress-ring-circle progress-ring-fill' stroke='#ff0000' strokeWidth='4' fill='transparent' r='36' cx='40' cy='40' strokeDasharray='226.08' strokeDashoffset='113'/>
                 </svg>
                 <FontAwesomeIcon icon={faPython} className='skill-icon-center' />
               </div>
@@ -207,7 +252,7 @@ function Home() {
           </div>
           
           <h4>Cloud & Database</h4>
-          <div className='skill-cards-grid'>
+          <div className='skill-cards-grid small-grid'>
             <div className='skill-card'>
               <FontAwesomeIcon icon={faCloud} className='skill-card-icon' />
               <h5>Firebase</h5>
@@ -219,7 +264,7 @@ function Home() {
           </div>
           
           <h4>Marketing & Analytics</h4>
-          <div className='skill-cards-grid'>
+          <div className='skill-cards-grid small-grid'>
             <div className='skill-card'>
               <FontAwesomeIcon icon={faChartLine} className='skill-card-icon' />
               <h5>Google Analytics</h5>
@@ -250,8 +295,30 @@ function Home() {
 
       <section className='projects' id='projects'>
         <h2>Projects</h2>
-        <div className='projects-placeholder'>
-          <p>Coming soon... Your amazing projects will appear here!</p>
+        <div className='projects-list'>
+          <ProjectCard 
+            name="Learnr"
+            description="A comprehensive learning management platform designed to streamline education and skill acquisition."
+            features={[
+              "Task and goal management",
+              "Custom learning roadmaps",
+              "Firebase authentication & profiles",
+              "Progress tracking dashboards",
+              "Responsive UI with dark/light mode"
+            ]}
+            techStack={[
+              { name: "TypeScript", icon: faCode },
+              { name: "Vite", icon: faBolt },
+              { name: "React", icon: faReact },
+              { name: "Firebase", icon: faFire },
+              { name: "Firestore", icon: faDatabase },
+              { name: "Tailwind CSS", icon: faWind }
+            ]}
+            links={{
+              live: "https://lurnnr.netlify.app/",
+              github: "https://github.com/4anglais/learnr2.0.git"
+            }}
+          />
         </div>
       </section>
 
@@ -320,9 +387,9 @@ function Home() {
         <div className='direct-email'>
           <h3>Send me a message</h3>
           <form className='email-form' action="https://formspree.io/f/mdkqrwgw" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="email" name="email" placeholder="Your Email" required />
-            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" required />
+            <textarea name="message" placeholder="Your Message" aria-label="Your Message" rows="4" required></textarea>
             <button type="submit">Send Message</button>
           </form>
         </div>
