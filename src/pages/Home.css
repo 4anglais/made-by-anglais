@@ -10,49 +10,216 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Intro Section - Flexbox layout */
+/* Intro Section - Updated Layout */
 .intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 40px;
+  gap: 40px;
+}
+
+.intro-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80%;
-  max-width: 1200px;
-  margin-top: 20px;
+  width: 100%;
 }
 
 .intro .text {
   flex: 1;
   text-align: left;
-  padding-right: 30px;
 }
 
 .intro .text h1 {
-  font-size: 3rem;
+  font-size: 4.5rem;
   font-family: 'Outfit', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   color: #333;
+  margin: 0;
 }
 
-.intro .text p {
-  font-size: 1.8rem;
-  color: #555;
-  font-weight: 300;
+.intro .image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
-/* Typewriter Effect */
-.typewriter-wrapper {
-  display: inline-block;
-  font-weight: 500;
-  color: #ff0000;
-  border-right: 3px solid #ff0000;
-  padding-right: 4px;
-  animation: blink 0.75s step-end infinite;
+/* Sticker Cards - Irregular Arrangement, Roaming Motion */
+.stickers-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  width: 100%;
+  margin-top: 30px;
+  position: relative;
+  min-height: 350px; /* Give them space to roam vertically */
 }
 
-/* Keyframe for blinking cursor */
-@keyframes blink {
-  50% {
-    border-color: transparent;
+.sticker {
+  width: 180px;
+  min-height: 70px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  text-align: left;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 200;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.1);
+  transition: transform 0.4s ease, border-color 0.3s ease;
+  cursor: default;
+  border: 1.5px solid rgba(255, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+body.light .sticker {
+  background: rgba(255, 240, 240, 0.9);
+  color: #e60000;
+  border-color: rgba(255, 0, 0, 0.5);
+}
+
+body.dark .sticker {
+  background: rgba(40, 0, 0, 0.4);
+  color: #ffcccc;
+  border-color: rgba(255, 0, 0, 0.6);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* 1st Card: Quarter Rotation + Large Roaming (Slower) */
+.sticker-rotate {
+  margin-left: 15px;
+  animation: quarterRotate 8s ease-in-out infinite, float1 25s ease-in-out infinite;
+}
+
+@keyframes quarterRotate {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(42deg); }
+}
+
+/* 2nd Card: Drift Style + Large Roaming (Slower) */
+.sticker-succession {
+  margin-left: -5px;
+  animation: driftSmooth 7s ease-in-out infinite, float2 35s ease-in-out infinite;
+}
+
+@keyframes driftSmooth {
+  0%, 100% { transform: translate(0, 0) rotate(1deg); }
+  50% { transform: translate(5px, -3px) rotate(-1deg); }
+}
+
+/* 3rd Card: Wiggle + Large Roaming (Slower) */
+.sticker-wiggle {
+  margin-left: 25px;
+  animation: constantWiggleSlower 1s ease-in-out infinite, float3 30s ease-in-out infinite;
+}
+
+@keyframes constantWiggleSlower {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50% { transform: rotate(1.5deg); }
+}
+
+/* Large Floating Path Animations - Reduced speed and adjusted for less collision */
+@keyframes float1 {
+  0%, 100% { translate: 0px 0px; }
+  33% { translate: 180px 40px; }
+  66% { translate: 50px 100px; }
+}
+
+@keyframes float2 {
+  0%, 100% { translate: 0px 0px; }
+  25% { translate: 120px -60px; }
+  50% { translate: 280px 30px; }
+  75% { translate: 80px 120px; }
+}
+
+@keyframes float3 {
+  0%, 100% { translate: 0px 0px; }
+  40% { translate: 250px -20px; }
+  80% { translate: 120px 80px; }
+}
+
+.sticker:hover {
+  transform: scale(1.1) !important; /* Keep scale but don't reset rotation/translate */
+  z-index: 10;
+  animation-play-state: paused;
+  border-color: #ff0000;
+  background: rgba(255, 0, 0, 0.1) !important;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  @keyframes float1 { 33% { translate: 150px 80px; } 66% { translate: 40px 150px; } }
+  @keyframes float2 { 50% { translate: 200px 40px; } 75% { translate: 50px 120px; } }
+  @keyframes float3 { 40% { translate: 180px -20px; } 80% { translate: 80px 100px; } }
+}
+
+@media (max-width: 768px) {
+  .stickers-container {
+    min-height: 250px;
+    align-items: center;
+  }
+  .sticker-rotate, .sticker-succession, .sticker-wiggle {
+    margin-left: 0;
+  }
+  /* Smaller roam for mobile to stay within screen */
+  @keyframes float1 { 33% { translate: 30px 40px; } 66% { translate: -30px 80px; } }
+  @keyframes float2 { 25% { translate: -20px -30px; } 50% { translate: 40px 20px; } 75% { translate: -20px 60px; } }
+  @keyframes float3 { 40% { translate: 40px -20px; } 80% { translate: -20px 50px; } }
+}
+
+/* Media Queries for updated layout */
+@media (max-width: 1024px) {
+  .intro .text h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .intro .text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stickers-container {
+    align-items: center;
+  }
+
+  .intro .text h1 {
+    font-size: 3rem;
+  }
+
+  .intro .image {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .intro .text h1 {
+    font-size: 2.2rem;
+  }
+
+  .sticker {
+    width: 160px;
+    min-height: 60px;
+    font-size: 0.85rem;
   }
 }
 
@@ -144,14 +311,6 @@ body.light .intro .text p {
     font-size: 1.4rem;
   }
 
-  .typewriter-wrapper {
-    font-size: 1.4rem;
-  }
-
-  .intro .image {
-    width: 100%;
-  }
-
   .intro .image img {
     max-width: 90%;
   }
@@ -175,10 +334,6 @@ body.light .intro .text p {
     font-size: 1.2rem;
   }
 
-  .typewriter-wrapper {
-    font-size: 1.2rem;
-  }
-
   .intro .image img {
     max-width: 100%;
   }
@@ -197,10 +352,6 @@ body.light .intro .text p {
   }
 
   .intro .text p {
-    font-size: 1rem;
-  }
-
-  .typewriter-wrapper {
     font-size: 1rem;
   }
 }

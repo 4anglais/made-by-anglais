@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Home.css';
 import ProjectCard from '../components/ProjectCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -35,50 +35,21 @@ function Home() {
     };
   }, []);
 
-  // Memoizing the strings array to prevent unnecessary recalculations...lol
-  const strings = useMemo(() => [
-    'Design & Build Websites', 
-    'am a Tech Startup Enthusiast'
-  ], []);
-
-  const [currentString, setCurrentString] = useState('');
-  const [index, setIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const typingInterval = setInterval(() => {
-      const currentWord = strings[index];
-      const updatedString = isDeleting
-        ? currentWord.slice(0, currentString.length - 1)
-        : currentWord.slice(0, currentString.length + 1);
-      
-      setCurrentString(updatedString);
-
-      if (!isDeleting && updatedString === currentWord) {
-        setTimeout(() => setIsDeleting(true), 1000); 
-      } else if (isDeleting && updatedString === '') {
-        setIsDeleting(false);
-        setIndex((prevIndex) => (prevIndex + 1) % strings.length); 
-      }
-    }, 100); 
-
-    return () => clearInterval(typingInterval); 
-  }, [currentString, isDeleting, index, strings]); 
-
   return (
     <div className='home'>
       <section className='intro' id='home'>
-        <div className='text'>
-          <h1>Hi, I am Angel</h1>
-          <p>
-            I{' '}
-            <span className='typewriter-wrapper'>
-              {currentString}
-            </span>
-          </p>
-        </div>
-        <div className='image'>
-          <img src={require('../assets/myimage.png')} alt="Angel" />
+        <div className='intro-header'>
+          <div className='text'>
+            <h1>Hi, I am Angel</h1>
+            <div className='stickers-container'>
+              <div className='sticker sticker-rotate'>I am a FrontEnd Web Developer</div>
+              <div className='sticker sticker-succession'>I am a Tech Enthusiast</div>
+              <div className='sticker sticker-wiggle'>I am a Mobile Systems & Android Modding Specialist</div>
+            </div>
+          </div>
+          <div className='image'>
+            <img src={require('../assets/myimage.png')} alt="Angel" />
+          </div>
         </div>
       </section>
 
