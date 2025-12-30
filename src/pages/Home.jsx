@@ -5,6 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPalette, faCode, faRocket, faWrench, faEnvelope, faPhone, faBrain, faComments, faLightbulb, faUsers, faChartLine, faDatabase, faCloud, faFire, faBolt, faWind } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub, faWhatsapp, faFacebook, faInstagram, faXTwitter, faHtml5, faCss3Alt, faJs, faReact, faPython, faGitAlt } from '@fortawesome/free-brands-svg-icons'; 
 
+import { ReactComponent as CleanCodeIcon } from '../assets/svg/clean_code.svg';
+import { ReactComponent as CreativeDesignIcon } from '../assets/svg/creative_design.svg';
+import { ReactComponent as ProblemSolverIcon } from '../assets/svg/problem_solver.svg';
+import { ReactComponent as StartupIcon } from '../assets/svg/startup.svg';
+
 function Home() {
   const offerRef = useRef(null);
   const aboutRef = useRef(null);
@@ -170,24 +175,32 @@ function Home() {
         <p className='about-subtitle'>A quick look at what drives me and what I love to do.</p>
         <div className='about-grid'>
           <div className='about-card'>
+            <div className='about-card-svg'>
+              <CreativeDesignIcon />
+            </div>
             <h3>Creative Design</h3>
             <p>Passionate about crafting visually stunning and user-friendly interfaces that leave a lasting impression.</p>
           </div>
           <div className='about-card'>
+            <div className='about-card-svg'>
+              <CleanCodeIcon />
+            </div>
             <h3>Clean Code</h3>
             <p>Writing maintainable, scalable, and efficient code is at the heart of every project I build.</p>
           </div>
           <div className='about-card'>
+            <div className='about-card-svg'>
+              <StartupIcon />
+            </div>
             <h3>Startup Spirit</h3>
             <p>Driven by innovation and a love for tech startups, I thrive in fast-paced, dynamic environments.</p>
           </div>
           <div className='about-card'>
+            <div className='about-card-svg'>
+              <ProblemSolverIcon />
+            </div>
             <h3>Problem Solver</h3>
             <p>Enjoy tackling complex challenges and delivering robust solutions that make a difference.</p>
-          </div>
-          <div className='about-card'>
-            <h3>Let’s Connect</h3>
-            <p>Open to collaborations, freelance work, or just a friendly chat about technology and design.</p>
           </div>
         </div>
         
