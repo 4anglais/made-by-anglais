@@ -9,6 +9,83 @@ function Home() {
   const offerRef = useRef(null);
   const aboutRef = useRef(null);
   const skillsRef = useRef(null);
+  const stickerRefs = useRef([]);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const stickers = stickerRefs.current;
+    if (stickers.length === 0) return;
+
+    let animationFrameId;
+    const repulsionOffsets = stickers.map(() => ({ x: 0, y: 0, vx: 0, vy: 0 }));
+
+    const updatePhysics = () => {
+      const rects = stickers.map(s => s?.getBoundingClientRect());
+      
+      for (let i = 0; i < stickers.length; i++) {
+        for (let j = i + 1; j < stickers.length; j++) {
+          const r1 = rects[i];
+          const r2 = rects[j];
+          if (!r1 || !r2) continue;
+
+          const c1 = { x: r1.left + r1.width / 2, y: r1.top + r1.height / 2 };
+          const c2 = { x: r2.left + r2.width / 2, y: r2.top + r2.height / 2 };
+
+          const dx = c2.x - c1.x;
+          const dy = c2.y - c1.y;
+          
+          // Improved collision detection for rectangular stickers
+          const minDistanceX = (r1.width + r2.width) / 2;
+          const minDistanceY = (r1.height + r2.height) / 2;
+          
+          const isColliding = Math.abs(dx) < minDistanceX && Math.abs(dy) < minDistanceY;
+
+          if (isColliding) {
+            const angle = Math.atan2(dy, dx);
+            const overlapX = minDistanceX - Math.abs(dx);
+            const overlapY = minDistanceY - Math.abs(dy);
+            
+            // Use the smaller overlap to determine force strength
+            const force = Math.min(overlapX, overlapY) / 10 + 0.5;
+            const strength = 1.5;
+
+            repulsionOffsets[i].vx -= Math.cos(angle) * force * strength;
+            repulsionOffsets[i].vy -= Math.sin(angle) * force * strength;
+            repulsionOffsets[j].vx += Math.cos(angle) * force * strength;
+            repulsionOffsets[j].vy += Math.sin(angle) * force * strength;
+          }
+        }
+
+        // Apply friction and limits
+        const off = repulsionOffsets[i];
+        off.x += off.vx;
+        off.y += off.vy;
+        
+        // Slightly stronger damping for better stability
+        off.vx *= 0.92;
+        off.vy *= 0.92;
+        
+        // Return to center slowly but surely
+        off.x *= 0.98;
+        off.y *= 0.98;
+
+        // Clamp offsets to prevent cards from flying away too far
+        const maxOffset = 150;
+        off.x = Math.max(-maxOffset, Math.min(maxOffset, off.x));
+        off.y = Math.max(-maxOffset, Math.min(maxOffset, off.y));
+
+        if (stickers[i] && stickers[i].parentElement) {
+          stickers[i].parentElement.style.setProperty('--repel-x', `${off.x}px`);
+          stickers[i].parentElement.style.setProperty('--repel-y', `${off.y}px`);
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(updatePhysics);
+    };
+
+    animationFrameId = requestAnimationFrame(updatePhysics);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
 
   useEffect(() => {
     const observerOptions = {
@@ -41,10 +118,16 @@ function Home() {
         <div className='intro-header'>
           <div className='text'>
             <h1>Hi, I am Angel</h1>
-            <div className='stickers-container'>
-              <div className='sticker sticker-rotate'>I am a FrontEnd Web Developer</div>
-              <div className='sticker sticker-succession'>I am a Tech Enthusiast</div>
-              <div className='sticker sticker-wiggle'>I am a Mobile Systems & Android Modding Specialist</div>
+            <div className='stickers-container' ref={containerRef}>
+              <div className='sticker-wrapper'>
+                <div className='sticker sticker-rotate' ref={el => stickerRefs.current[0] = el}>I am a FrontEnd Web Developer</div>
+              </div>
+              <div className='sticker-wrapper'>
+                <div className='sticker sticker-succession' ref={el => stickerRefs.current[1] = el}>I am a Tech Enthusiast</div>
+              </div>
+              <div className='sticker-wrapper'>
+                <div className='sticker sticker-wiggle' ref={el => stickerRefs.current[2] = el}>I am a Mobile Systems & Android Modding Specialist</div>
+              </div>
             </div>
           </div>
           <div className='image'>

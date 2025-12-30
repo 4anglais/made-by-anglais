@@ -59,6 +59,13 @@
   min-height: 350px; /* Give them space to roam vertically */
 }
 
+.sticker-wrapper {
+  transform: translate(var(--repel-x, 0px), var(--repel-y, 0px));
+  z-index: 2;
+  display: inline-block;
+  width: fit-content;
+}
+
 .sticker {
   width: 180px;
   min-height: 70px;
@@ -97,8 +104,11 @@ body.dark .sticker {
 
 /* 1st Card: Quarter Rotation + Large Roaming (Slower) */
 .sticker-rotate {
-  margin-left: 15px;
   animation: quarterRotate 8s ease-in-out infinite, float1 25s ease-in-out infinite;
+}
+
+.sticker-wrapper:nth-of-type(1) {
+  margin-left: 15px;
 }
 
 @keyframes quarterRotate {
@@ -108,8 +118,11 @@ body.dark .sticker {
 
 /* 2nd Card: Drift Style + Large Roaming (Slower) */
 .sticker-succession {
-  margin-left: -5px;
   animation: driftSmooth 7s ease-in-out infinite, float2 35s ease-in-out infinite;
+}
+
+.sticker-wrapper:nth-of-type(2) {
+  margin-left: -5px;
 }
 
 @keyframes driftSmooth {
@@ -119,8 +132,11 @@ body.dark .sticker {
 
 /* 3rd Card: Wiggle + Large Roaming (Slower) */
 .sticker-wiggle {
-  margin-left: 25px;
   animation: constantWiggleSlower 1s ease-in-out infinite, float3 30s ease-in-out infinite;
+}
+
+.sticker-wrapper:nth-of-type(3) {
+  margin-left: 25px;
 }
 
 @keyframes constantWiggleSlower {
@@ -168,8 +184,8 @@ body.dark .sticker {
     min-height: 250px;
     align-items: center;
   }
-  .sticker-rotate, .sticker-succession, .sticker-wiggle {
-    margin-left: 0;
+  .sticker-wrapper {
+    margin-left: 0 !important;
   }
   /* Smaller roam for mobile to stay within screen */
   @keyframes float1 { 33% { translate: 30px 40px; } 66% { translate: -30px 80px; } }
@@ -217,9 +233,22 @@ body.dark .sticker {
   }
 
   .sticker {
-    width: 160px;
-    min-height: 60px;
-    font-size: 0.85rem;
+    width: 140px;
+    min-height: 50px;
+    font-size: 0.75rem;
+    padding: 8px 12px;
+    border-radius: 15px;
+  }
+}
+
+/* Extra small devices (iPhone 6s, 375px and below) */
+@media (max-width: 375px) {
+  .sticker {
+    width: 120px;
+    min-height: 45px;
+    font-size: 0.65rem;
+    padding: 6px 10px;
+    border-radius: 12px;
   }
 }
 
@@ -768,29 +797,30 @@ body.light .email-form textarea {
   }
 
   .feature-card {
-    padding: 12px;
+    padding: 10px;
     aspect-ratio: 1 / 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     max-width: 100%;
+    border-radius: 15px;
   }
 
   .feature-card .card-icon {
-    font-size: 1.6rem;
-    width: 40px;
-    height: 40px;
-    margin-bottom: 5px;
-  }
-
-  .feature-card h3 {
-    font-size: 0.85rem;
+    font-size: 1.4rem;
+    width: 35px;
+    height: 35px;
     margin-bottom: 4px;
   }
 
+  .feature-card h3 {
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+  }
+
   .feature-card p {
-    font-size: 0.65rem;
-    line-height: 1.3;
+    font-size: 0.6rem;
+    line-height: 1.2;
   }
 }
 
@@ -798,48 +828,48 @@ body.light .email-form textarea {
   .features {
     margin: 40px auto;
     width: 100%;
-    padding: 20px 10px;
+    padding: 20px 8px;
   }
 
   .features h2 {
-    font-size: 1.6rem;
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
     text-align: left;
   }
 
   .cards-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    gap: 6px;
     width: 100%;
     margin: 0 auto;
   }
 
   .feature-card {
-    padding: 10px;
+    padding: 8px;
     width: 100%;
     max-width: 100%;
     aspect-ratio: 1 / 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-radius: 18px;
+    border-radius: 12px;
   }
 
   .feature-card .card-icon {
-    font-size: 1.4rem;
-    width: 35px;
-    height: 35px;
-    margin-bottom: 5px;
-  }
-
-  .feature-card h3 {
-    font-size: 0.75rem;
+    font-size: 1.2rem;
+    width: 30px;
+    height: 30px;
     margin-bottom: 3px;
   }
 
+  .feature-card h3 {
+    font-size: 0.7rem;
+    margin-bottom: 2px;
+  }
+
   .feature-card p {
-    font-size: 0.6rem;
-    line-height: 1.25;
+    font-size: 0.55rem;
+    line-height: 1.15;
   }
 }
 
@@ -1133,19 +1163,22 @@ body.light .about-card h3 {
   }
 
   .about-card {
-    padding: 15px;
+    padding: 12px;
     aspect-ratio: 1 / 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 15px;
   }
 
   .about-card h3 {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
   }
 
   .about-card p {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
+    line-height: 1.25;
   }
 }
 
@@ -1156,39 +1189,81 @@ body.light .about-card h3 {
   }
 
   .about h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     text-align: left;
   }
 
   .about-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     text-align: left;
+    margin-bottom: 20px;
   }
 
   .about-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 8px;
     max-width: 100%;
     margin: 0 auto;
   }
 
   .about-card {
-    padding: 12px;
+    padding: 10px;
     aspect-ratio: 1 / 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 12px;
   }
 
   .about-card h3 {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    margin-bottom: 3px;
   }
+
+  .about-card p {
+    font-size: 0.55rem;
+    line-height: 1.2;
+  }
+}
+
+/* Extra small devices (iPhone 6s, 375px and below) */
+@media (max-width: 375px) {
+  .about {
+    padding: 20px 8px;
+  }
+
+  .about h2 {
+    font-size: 1.3rem;
+  }
+
+  .about-subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+  }
+
+  .about-grid {
+    gap: 6px;
+  }
+
+  .about-card {
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  .about-card h3 {
+    font-size: 0.7rem;
+  }
+
+  .about-card p {
+    font-size: 0.5rem;
+  }
+}
 
   .about-card p {
     font-size: 0.65rem;
     line-height: 1.35;
   }
-}
+
 
 /* ============ PROJECTS SECTION ============ */
 .projects {
@@ -2267,12 +2342,110 @@ body.dark .skill-icon-center {
 }
 
 @media (max-width: 768px) {
-  .skill-card-progress .circular-progress {
-    display: none;
+  .skill-card-progress {
+    padding: 10px;
   }
   
   .mobile-skill-icon {
-    display: block;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+  }
+  
+  .mobile-progress-bar {
+    height: 6px;
+    margin: 6px 0;
+  }
+  
+  .skill-card-progress h5 {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+  }
+  
+  .skill-card-progress {
+    padding: 8px !important;
+    border-radius: 12px;
+  }
+  
+  .mobile-skill-icon {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+  }
+  
+  .mobile-progress-bar {
+    height: 4px;
+    margin: 4px 0;
+  }
+  
+  .skill-card-progress h5 {
+    font-size: 0.65rem !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .skills-grid {
+    gap: 6px !important;
+  }
+  
+  .skill-card-progress {
+    padding: 6px !important;
+    border-radius: 10px;
+  }
+  
+  .mobile-skill-icon {
+    font-size: 1.2rem;
+  }
+  
+  .skill-card-progress h5 {
+    font-size: 0.6rem !important;
+  }
+}
+
+/* Development Tools Grid */
+@media (max-width: 600px) {
+  .skill-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  
+  .skill-card {
+    padding: 8px;
+    border-radius: 12px;
+  }
+  
+  .skill-card-icon {
+    font-size: 1.5rem !important;
+    margin-bottom: 4px;
+  }
+  
+  .skill-card h5 {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .skill-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+  
+  .skill-card {
+    padding: 6px;
+    border-radius: 10px;
+  }
+  
+  .skill-card-icon {
+    font-size: 1.2rem !important;
+    margin-bottom: 3px;
+  }
+  
+  .skill-card h5 {
+    font-size: 0.6rem;
   }
 }
 body.dark .mobile-skill-icon {
